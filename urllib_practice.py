@@ -73,3 +73,52 @@
 # except URLError as e:
 # 	print(e.reason)
 # ---------------------------代理----------------------------
+
+# import http.cookiejar, urllib.request
+
+# cookie = http.cookiejar.CookieJar()
+# handler = urllib.request.HTTPCookieProcessor(cookie)
+# opener = urllib.request.build_opener(handler)
+# response = opener.open('http://www.baidu.com')
+# for item in cookie:
+# 	print(item.name+"="+item.value)
+
+# filename = 'cookies.txt'
+# cookie = http.cookiejar.MozillaCookieJar(filename)
+# hanlder = urllib.request.HTTPCookieProcessor(cookie)
+# opener = urllib.request.build_opener(hanlder)
+# reponse = opener.open('http://www.baidu.com')
+# cookie.save(ignore_discard=True, ignore_expires=True)
+# --------------------------Cookies--------------------------
+
+# from urllib import request, error
+# try:
+# 	response = request.urlopen('https://cuiqingcai.com/index.htm')
+# except error.URLError as e:
+# 	print(e.reason)
+# --------------------------异常处理：URLError--------------------------
+
+# from urllib import request,error
+# try:
+# 	response = request.urlopen('https://cuiqingcai.com/index.htm')
+# except error.HTTPError as e:
+# 	print(e.reason, e.code, e.headers, sep='\n')
+# --------------------------异常处理：HTTPError--------------------------
+
+# from urllib import request, error
+
+# try:
+# 	response = request.urlopen('https://cuiqingcai.com/index.htm')
+# except error.HTTPError as e:
+# 	print(e.reason, e.code, e.headers, sep='\n')
+# except error.URLError as e:
+# 	print(e.reason)
+# else:
+# 	print('Request Successfully')
+# --------------------------异常处理：HTTPError是URLError的子类，先捕获子类异常--------------------------
+
+from urllib.parse import urlparse
+
+result = urlparse('http://www.baidu.com/index.html;user?id=5#comment')
+print(type(result), result)
+# --------------------------URL解析--------------------------
