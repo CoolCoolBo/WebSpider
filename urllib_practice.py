@@ -3,13 +3,17 @@
 
 # ********************urllib库的使用********************
 
+
+# --------------------------urlopen--------------------------------
 # import urllib.request
 
 # response = urllib.request.urlopen('https://www.python.org')
 # print(response.status)
 # print(response.getheaders())
 # print(response.getheader('Server'))
-# ----------------------------------------------------------
+
+
+# --------------------------data参数--------------------------------
 # import urllib.parse
 # import urllib.request
 
@@ -17,7 +21,9 @@
 # data = bytes(string, encoding='utf=8')
 # response = urllib.request.urlopen('http://httpbin.org/post', data=data)
 # print(response.read())
-# ------------------------------------------------------------
+
+
+# -------------------------timeout参数--------------------------------
 # import socket
 # import urllib.request
 # import urllib.error
@@ -27,7 +33,9 @@
 # except urllib.error.URLError as e:
 # 	if isinstance(e.reason, socket.timeout):
 # 		print('TIME OUT!')
-# -----------------------------------------------------
+
+
+# -------------------------request--------------------------------
 # from urllib import request, parse
 
 # url = 'http://httpbin.org/post'
@@ -42,8 +50,9 @@
 # req = request.Request(url=url, data=data, headers=headers, method='POST')
 # response = request.urlopen(req)
 # print(response.read().decode('utf8'))
-# --------------------------------------------------------------
 
+
+# -------------------------request验证--------------------------------
 # from urllib.request import HTTPPasswordMgrWithDefaultRealm, HTTPBasicAuthHandler, build_opener
 # from urllib.error import URLError
 
@@ -62,7 +71,9 @@
 # 	print(html)
 # except URLError as e:
 # 	print(e.reason)
-# ---------------------------验证-----------------------------------
+
+
+# ---------------------------request代理-----------------------------------
 
 # from urllib.error import URLError
 # from urllib.request import ProxyHandler, build_opener
@@ -77,5 +88,3 @@
 # 	print(response.read().decode('utf8'))
 # except URLError as e:
 # 	print(e.reason)
-# ---------------------------代理----------------------------
-
